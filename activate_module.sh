@@ -1,1 +1,0 @@
-conda activate ncr_ai_module_env
