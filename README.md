@@ -1,7 +1,7 @@
 # NCR-AI Modules
 
 ## วิธีการติดตั้งบน Windows
-1. ดาวน์โหลดโฟลเดอร์ modules และ ไฟล์ environment.yml ไปวางไว้ในโฟลเดอร์ Work Space ของเรา (insert image)
+1. ดาวน์โหลดโฟลเดอร์ modules ไปวางไว้ในโฟลเดอร์ Work Space ของเรา (ในตัวอย่างนี้โฟลเดอร์ Work Space มีชื่อว่า `test`)
 2. ติดตั้ง Miniconda
     * ดูการวิธีการติดตั้งได้ที่ https://docs.conda.io/en/latest/miniconda.html
     * เมื่อติดตั้งเสร็จแล้วให้เปิด Anaconda Prompt (insert image)
