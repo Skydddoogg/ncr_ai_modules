@@ -5,10 +5,8 @@ from modules.ResourceTextToSpeech import config
 
 def play(text = None, remove_result = True, self_input = False):
 
-    print("โมดูล Text-to-Speech เริ่มทำงาน -------------------")
-
     if self_input:
-        text = input('\nคุณต้องการให้ฉันพูดว่าอะไร: ')
+        text = input('\nTTS - Enter what you want me to say: ')
 
     # Convert text to speech
     tts = gTTS(text=text, lang='th')

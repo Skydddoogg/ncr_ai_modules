@@ -81,13 +81,16 @@ def play():
                     unknown_images.append(crop_face)
                     # cv2.imshow('Unknown', crop_face)
                     if temp_stop:
+                        print("FR - Speak your name!")
                         TextToSpeech.play("คุณชื่ออะไรหรอคะ")
                         while True:
                             name_for_unknown = SpeechRecognition.play()
                             if name_for_unknown != '0':
+                                print("FR - Now i know you! Nice to meet you.")
                                 TextToSpeech.play("ยินดีที่ได้รู้จักน่ะค่ะคุณ" + name_for_unknown)
                                 break
                             else:
+                                print("FR - Try again!")
                                 TextToSpeech.play("กรุณาบอกชื่อคุณอีกครั้ง")
                         name_for_unknown = name_for_unknown
                         cv2.imwrite(os.path.join(config.db_path, name_for_unknown + '.jpg'), crop_face)
