@@ -4,10 +4,13 @@ import numpy as np
 import os
 from modules.ResourceFaceRecognition import utils, config
 from modules import TextToSpeech, SpeechRecognition
+from modules import global_utils
 
 def play():
 
     # The original code of this function can be found here: https://github.com/ageitgey/face_recognition
+
+    print("Face Recognition (FR) is started")
 
     # Fetch images from face database
     images = utils.get_all_image_path_from_db()
@@ -81,17 +84,17 @@ def play():
                     unknown_images.append(crop_face)
                     # cv2.imshow('Unknown', crop_face)
                     if temp_stop:
-                        print("FR - Speak your name!")
-                        TextToSpeech.play("คุณชื่ออะไรหรอคะ")
+                        global_utils.show_module_log("FR - Speak your name!")
+                        TextToSpeech.play("คุณชื่ออะไรหรอคะ", repeat=False)
                         while True:
-                            name_for_unknown = SpeechRecognition.play()
+                            name_for_unknown = SpeechRecognition.play(return_value = True)
                             if name_for_unknown != '0':
-                                print("FR - Now i know you! Nice to meet you.")
-                                TextToSpeech.play("ยินดีที่ได้รู้จักน่ะค่ะคุณ" + name_for_unknown)
+                                global_utils.show_module_log("FR - Now i know you! Nice to meet you.")
+                                TextToSpeech.play("ยินดีที่ได้รู้จักน่ะค่ะคุณ" + name_for_unknown, repeat=False)
                                 break
                             else:
-                                print("FR - Try again!")
-                                TextToSpeech.play("กรุณาบอกชื่อคุณอีกครั้ง")
+                                global_utils.show_module_log("FR - Try again!")
+                                TextToSpeech.play("กรุณาบอกชื่อคุณอีกครั้ง", repeat=False)
                         name_for_unknown = name_for_unknown
                         cv2.imwrite(os.path.join(config.db_path, name_for_unknown + '.jpg'), crop_face)
                         images = utils.get_all_image_path_from_db()
