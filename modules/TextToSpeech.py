@@ -1,5 +1,4 @@
 from gtts import gTTS
-import playsound
 import os
 from modules.ResourceTextToSpeech import config
 import pygame
