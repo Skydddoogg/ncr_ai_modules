@@ -37,7 +37,7 @@
    ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_4.png)
 5. ติดตั้ง Package ที่จำเป็นต่อการใช้งาน AI Module ลงใน Environment ที่สร้าง
    * 5.1 OpenCV
-      * รันคำสั่ง `sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100 libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 libatlas-base-dev libjasper-dev`
+      * รันคำสั่ง `sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-103 libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 libatlas-base-dev libjasper-dev`
       * รันคำสั่ง `pip install opencv-contrib-python==4.1.0.25`
    * 5.2 PiCamera
       * รันคำสั่ง `pip install "picamera[array]"`
