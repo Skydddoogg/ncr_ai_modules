@@ -2,6 +2,9 @@ from gtts import gTTS
 import playsound
 import os
 from modules.ResourceTextToSpeech import config
+import pygame
+
+pygame.mixer.init()
 
 def play(text = None, remove_result = True, self_input = False, repeat = True):
 
@@ -23,7 +26,9 @@ def play(text = None, remove_result = True, self_input = False, repeat = True):
         tts.save(result_path)
 
         # Play result
-        playsound.playsound(result_path, True)
+        # playsound.playsound(result_path, True)
+        pygame.mixer.music.load(result_path)
+        pygame.mixer.music.play()
 
         if remove_result:
             # Remove result file
