@@ -31,7 +31,8 @@ def encode_images(list_image_path):
 def display_bbox_in_image(image, face_locations, face_names):
 
     font_size = 46
-    font = ImageFont.truetype("THSarabunNew.ttf", font_size)
+    # font = ImageFont.truetype("THSarabunNew.ttf", font_size)
+    font = ImageFont.load_default()
 
     # Display the results
     for (top, right, bottom, left), name in zip(face_locations, face_names):

@@ -7,7 +7,7 @@
     ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/2.png)
     * ตรวจสอบการติดตั้งโดยการรันคำสั่ง `conda` แล้วผลลัพธ์ควรเป็นไปตามรูปด้านล่าง
     ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/3.PNG)
-2. สร้าง Environment สำหรับการจัดเก็บ Library (ในกรณีที่ต้องการใช้ Environment ที่มีอยู่แล้วให้ข้ามไปทำข้อ 4. เลย)
+2. สร้าง Environment สำหรับการจัดเก็บ Library โดยแนะนำว่าใน Environment ต้องใช้ Python 3.5 (ในกรณีที่ต้องการใช้ Environment ที่มีอยู่แล้วให้ข้ามไปทำข้อ 4. เลย)
     * รันคำสั่ง `conda create -n *ชื่อ Environment* python=3.5` เช่น `conda create -n ai_module_env python=3.5`
     ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/4.PNG)
 3. เปิดใช้งาน Environment ที่สร้าง
