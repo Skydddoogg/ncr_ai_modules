@@ -26,15 +26,15 @@
 1. ติดตั้ง Virtualenv
    * รันคำสั่ง `pip install virtualenv`
    * เมื่อติดตั้งเสร็จแล้วให้ตรวจสอบโดยการรันคำสั่ง `virtualenv` แล้วผลลัพธ์ควรเป็นไปตามรูปด้านล่าง
-   ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_1.PNG)
+   ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_1.png)
 2. สร้างโฟลเดอร์ Work Space ของเรา โดยในตัวอย่างนี้มีชื่อว่า `test_pi`
-![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_2.PNG)
+![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_2.png)
 3. เข้าไปในโฟลเดอร์ Work Space และ สร้าง Environment สำหรับการจัดเก็บ Package (ในกรณีที่ต้องการใช้ Environment ที่มีอยู่แล้วให้ข้ามไปทำข้อ 4. เลย)
    * รันคำสั่ง `virtualenv *ชื่อ Environment*` เช่น `virtualenv ai_module_env`
-   ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_3.PNG)
+   ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_3.png)
 4. เปิดใช้งาน Enviroment ที่สร้าง เพื่อติดตั้ง Package ที่จำเป็นลงไป
    * รันคำสั่ง `source *ชื่อ Environment*/bin/activate` เช่น `source ai_module_env/bin/activate` แล้วผลลัพธ์ควรเป็นดังรูปด้านล่าง
-   ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_4.PNG)
+   ![](https://github.com/Skydddoogg/ncr_ai_modules/blob/master/images/pi_4.png)
 5. ติดตั้ง Package ที่จำเป็นต่อการใช้งาน AI Module ลงใน Environment ที่สร้าง
    * 5.1 OpenCV
       * รันคำสั่ง `sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-100 libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5 libatlas-base-dev libjasper-dev`
