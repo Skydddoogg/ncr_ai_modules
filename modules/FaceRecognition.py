@@ -91,16 +91,16 @@ def play():
                     # cv2.imshow('Unknown', crop_face)
                     if temp_stop:
                         global_utils.show_module_log("FR - Speak your name!")
-                        TextToSpeech.play("คุณชื่ออะไรหรอคะ", repeat=False)
+                        TextToSpeech.play("What is your name?", repeat=False)
                         while True:
                             name_for_unknown = SpeechRecognition.play(return_value = True)
                             if name_for_unknown != '0':
                                 global_utils.show_module_log("FR - Now i know you! Nice to meet you.")
-                                TextToSpeech.play("ยินดีที่ได้รู้จักน่ะค่ะคุณ" + name_for_unknown, repeat=False)
+                                TextToSpeech.play("Nice to meet you " + name_for_unknown, repeat=False)
                                 break
                             else:
                                 global_utils.show_module_log("FR - Try again!")
-                                TextToSpeech.play("กรุณาบอกชื่อคุณอีกครั้ง", repeat=False)
+                                TextToSpeech.play("Say your name again", repeat=False)
                         name_for_unknown = name_for_unknown
                         cv2.imwrite(os.path.join(config.db_path, name_for_unknown + '.jpg'), crop_face)
                         images = utils.get_all_image_path_from_db()

@@ -30,7 +30,7 @@ def encode_images(list_image_path):
 
 def display_bbox_in_image(image, face_locations, face_names):
 
-    font_size = 46
+    font_size = 150
     # font = ImageFont.truetype("THSarabunNew.ttf", font_size)
     font = ImageFont.load_default()
 
@@ -47,8 +47,8 @@ def display_bbox_in_image(image, face_locations, face_names):
 
 
         # Draw a label with a name below the face
-        draw.rectangle(((left, bottom - font_size), (right, bottom)), fill=(0, 0, 255))
-        draw.text((left + 6, bottom - font_size), name, font = font)
+        draw.rectangle(((left, bottom - 30), (right, bottom)), fill=(0, 0, 255))
+        draw.text((left + 6, bottom - 30), name, font = font)
         image = np.array(img_pil)
 
         # Draw a box around the face

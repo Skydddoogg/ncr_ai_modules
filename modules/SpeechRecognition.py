@@ -21,7 +21,8 @@ def play(return_value = False):
         # Process STT
         try:
             # Recognize speech using Google Speech Recognition
-            value = r.recognize_google(audio, language="th-TH")
+            # value = r.recognize_google(audio, language="th-TH")
+            value = r.recognize_google(audio)
 
             # Show result
             global_utils.show_module_log("STT - You said {}".format(value))

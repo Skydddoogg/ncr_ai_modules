@@ -16,7 +16,8 @@ def play(text = None, remove_result = True, self_input = False, repeat = True):
             text = input('%5s %s' % (' ', message))
 
         # Convert text to speech
-        tts = gTTS(text=text, lang='th')
+        # tts = gTTS(text=text, lang='th')
+        tts = gTTS(text=text)
 
         # Save result
         if not os.path.isdir(config.result_folder):
