@@ -21,7 +21,7 @@ class SimpleQABot(object):
         self.trainer = ChatterBotCorpusTrainer(self.chatbot_obj)
 
         self.trainer.train(
-            os.path.join(global_utils.ROOT_DIR, 'ResourceBot', 'corpus')
+            os.path.join(global_utils.ROOT_DIR, 'ResourceQABot', 'corpus')
         )
 
         return self
