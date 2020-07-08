@@ -5,7 +5,7 @@ import pygame
 
 pygame.mixer.init()
 
-def play(text = None, remove_result = True, self_input = False, repeat = True):
+def play(text = None, remove_result = True, self_input = False, repeat = True, language = 'en'):
 
     print("Text-To-Speech (TTS) is started")
 
@@ -16,8 +16,7 @@ def play(text = None, remove_result = True, self_input = False, repeat = True):
             text = input('%5s %s' % (' ', message))
 
         # Convert text to speech
-        # tts = gTTS(text=text, lang='th')
-        tts = gTTS(text=text)
+        tts = gTTS(text=text, lang=language)
 
         # Save result
         if not os.path.isdir(config.result_folder):

@@ -1,7 +1,7 @@
 import speech_recognition as sr
 from modules import global_utils
 
-def play(return_value = False):
+def play(return_value = False, language = 'en-EN'):
 
     print("Speech-To-Text (STT) is started")
 
@@ -21,8 +21,7 @@ def play(return_value = False):
         # Process STT
         try:
             # Recognize speech using Google Speech Recognition
-            # value = r.recognize_google(audio, language="th-TH")
-            value = r.recognize_google(audio)
+            value = r.recognize_google(audio, language=language)
 
             # Show result
             global_utils.show_module_log("STT - You said {}".format(value))

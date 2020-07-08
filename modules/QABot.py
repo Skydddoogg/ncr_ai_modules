@@ -1,7 +1,7 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import os
-import global_utils
+from modules import global_utils
 import pickle
 
 class SimpleQABot(object):
@@ -11,8 +11,8 @@ class SimpleQABot(object):
         self.bot_name = bot_name
         self.chatbot_obj = ChatBot(
             self.bot_name,
-            storage_adapter = 'chatterbot.storage.SQLStorageAdapter',
-            database = self.bot_name + '.sqlite3'
+            # storage_adapter = 'chatterbot.storage.SQLStorageAdapter',
+            # database = self.bot_name + '.sqlite3'
         )
         self.trainer = None
 
@@ -36,10 +36,8 @@ class SimpleQABot(object):
             self.train()
 
         while True:
-            text = input("Input: ")
-            if text == 'exit':
+            text=input("Text: ")
+            if text=="exit":
                 break
-
             response = self.get_response_text(text)
-
             print(response)
