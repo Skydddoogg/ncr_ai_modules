@@ -130,3 +130,5 @@ dmypy.json
 
 # Custom
 test.py
+*.pickle
+*.sqlite3
