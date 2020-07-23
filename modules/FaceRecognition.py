@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import os
 from modules.ResourceFaceRecognition import utils, config
-from modules import TextToSpeech, SpeechRecognition
+from modules import TextToSpeech, SpeechToText
 from modules import global_utils
 
 def play():
@@ -29,6 +29,8 @@ def play():
 
     unknown_c = 0
     unknown_images = []
+
+    greeted_people = []
 
     while True:
 
@@ -80,6 +82,11 @@ def play():
                     if matches[best_match_index]:
                         name = known_face_names[best_match_index]
 
+                        if name not in greeted_people:
+                            TextToSpeech.play("Welcome back " + name, repeat=False)
+                            TextToSpeech.play("Can i help you?", repeat=False)
+                            greeted_people.append(name)
+
                 if name == 'Unknown':
                     top, right, bottom, left = face_locations[idx][0], face_locations[idx][1], face_locations[idx][2], face_locations[idx][3]
                     top *= 4
@@ -93,10 +100,13 @@ def play():
                         global_utils.show_module_log("FR - Speak your name!")
                         TextToSpeech.play("What is your name?", repeat=False)
                         while True:
-                            name_for_unknown = SpeechRecognition.play(return_value = True)
-                            if name_for_unknown != '0':
+                            name_for_unknown = SpeechToText.play(return_value = True)
+                            TextToSpeech.play("Your name is " + name_for_unknown + ', right?', repeat=False)
+                            confirm_answer = SpeechToText.play(return_value = True)
+                            if (name_for_unknown != '0') and ('yes' in confirm_answer):
                                 global_utils.show_module_log("FR - Now i know you! Nice to meet you.")
                                 TextToSpeech.play("Nice to meet you " + name_for_unknown, repeat=False)
+                                greeted_people.append(name_for_unknown)
                                 break
                             else:
                                 global_utils.show_module_log("FR - Try again!")
