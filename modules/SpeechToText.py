@@ -1,38 +1,43 @@
 import speech_recognition as sr
 from modules import global_utils
 
-def play(return_value = False, language = 'en-EN'):
+class SpeechToText(object):
+    def __init__(self):
+        super(SpeechToText, self).__init__()
 
-    print("Speech-To-Text (STT) is started")
+    @staticmethod
+    def play(return_value = False, language = 'en-EN'):
 
-    # Declare necessary variables
-    r = sr.Recognizer()
-    m = sr.Microphone()
-    
-    # Set up for microphone
-    with m as source: r.adjust_for_ambient_noise(source)
+        print("Speech-To-Text (STT) is started")
 
-    while True:
-        # Listern to microphone
-        global_utils.show_module_log("STT - Speak off!")
-        with m as source: audio = r.listen(source)
-        global_utils.show_module_log("STT - Processing...")
+        # Declare necessary variables
+        r = sr.Recognizer()
+        m = sr.Microphone()
+        
+        # Set up for microphone
+        with m as source: r.adjust_for_ambient_noise(source)
 
-        # Process STT
-        try:
-            # Recognize speech using Google Speech Recognition
-            value = r.recognize_google(audio, language=language)
+        while True:
+            # Listern to microphone
+            global_utils.show_module_log("STT - Speak off!")
+            with m as source: audio = r.listen(source)
+            global_utils.show_module_log("STT - Processing...")
 
-            # Show result
-            global_utils.show_module_log("STT - You said {}".format(value))
-            if return_value:
-                return value
+            # Process STT
+            try:
+                # Recognize speech using Google Speech Recognition
+                value = r.recognize_google(audio, language=language)
 
-        except sr.UnknownValueError:
-            global_utils.show_module_log("STT - Oops! Didn't catch that")
-            if return_value:
-                return "0"
-        except sr.RequestError as e:
-            global_utils.show_module_log("STT - Uh oh! Couldn't request results from Google Speech Recognition service; {0}".format(e))
-            if return_value:
-                return "0"
+                # Show result
+                global_utils.show_module_log("STT - You said {}".format(value))
+                if return_value:
+                    return value
+
+            except sr.UnknownValueError:
+                global_utils.show_module_log("STT - Oops! Didn't catch that")
+                if return_value:
+                    return "0"
+            except sr.RequestError as e:
+                global_utils.show_module_log("STT - Uh oh! Couldn't request results from Google Speech Recognition service; {0}".format(e))
+                if return_value:
+                    return "0"
