@@ -11,8 +11,11 @@ class SimpleQABot(object):
         self.bot_name = bot_name
         self.chatbot_obj = ChatBot(
             self.bot_name,
-            # storage_adapter = 'chatterbot.storage.SQLStorageAdapter',
-            # database = self.bot_name + '.sqlite3'
+            logic_adapters=[
+                'chatterbot.logic.MathematicalEvaluation', # บอกผลลัพธ์ บวก ลบ คูณ และหาร
+                'chatterbot.logic.BestMatch',
+                'modules.ResourceQABot.CustomAdapters.GoogleSearchAdapter' # ค้นหาจาก Google ตาม Keyword
+            ],
         )
         self.trainer = None
 
@@ -21,7 +24,7 @@ class SimpleQABot(object):
         self.trainer = ChatterBotCorpusTrainer(self.chatbot_obj)
 
         self.trainer.train(
-            os.path.join(global_utils.ROOT_DIR, 'ResourceQABot', 'corpus')
+            os.path.join(global_utils.ROOT_DIR, 'ResourceQABot', 'data', 'english')
         )
 
         return self
