@@ -30,8 +30,9 @@ class SimpleQABot(object):
         return self
 
     def get_response_text(self, incoming_text):
-
-        return self.chatbot_obj.get_response(incoming_text)
+        response = self.chatbot_obj.get_response(incoming_text).text
+        global_utils.show_module_log('QABot - ' + response)
+        return response
 
     def play(self):
 
