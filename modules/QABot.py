@@ -31,7 +31,7 @@ class SimpleQABot(object):
 
     def get_response_text(self, incoming_text):
         response = self.chatbot_obj.get_response(incoming_text).text
-        global_utils.show_module_log('QABot - ' + response)
+        print('Bot: ' + response)
         return response
 
     def play(self):
@@ -40,8 +40,7 @@ class SimpleQABot(object):
             self.train()
 
         while True:
-            text=input("Text: ")
+            text=input("You: ")
             if text=="exit":
                 break
             response = self.get_response_text(text)
-            print(response)
